@@ -1,52 +1,38 @@
-const { startOrCreate, waitDevice, adbExec } = require("./utils");
+const android = require("@wtto00/androidctrl");
 
 var AndroidEmulator = function (args, logger, baseLauncherDecorator) {
   var log = logger.create("launcher:AndroidEmulator");
 
-  if (!process.env.ANDROID_HOME) {
-    log.error("Please add ANDROID_HOME to environment variables.");
-    this._process.kill();
-    return;
-  }
-
-  const systemImage = args.imageName;
-  const avdName = args.avdName || `Android_Emulator_${Date.now()}`;
+  const avdName = args.avdName;
 
   baseLauncherDecorator(this);
 
+  let emulatorId;
   this.on("start", (url) => {
-    const _process = this._process;
-    const emulatorProcess = startOrCreate(avdName, systemImage);
-    console.log("emulatorProcess", !!emulatorProcess);
-    if (emulatorProcess) {
-      emulatorProcess.on("exit", () => {
-        console.log("emulatorProcess exit");
-        _process.kill();
-      });
-      emulatorProcess.on("error", () => {
-        console.log("emulatorProcess error");
-        _process.kill();
-      });
-      emulatorProcess.on("close", () => {
-        console.log("emulatorProcess close");
-        _process.kill();
-        process.exit(0);
-      });
-      emulatorProcess.on("disconnect", () => {
-        console.log("emulatorProcess disconnect");
-      });
-      emulatorProcess.on("message", (e) => {
-        console.log("emulatorProcess message", e);
-      });
-    }
-    return waitDevice(avdName)
-      .then(() => {
-        return adbExec(`shell am start -a android.intent.action.VIEW -d ${url} -f 0x20000000`);
+    android
+      .startOrCreate(avdName)
+      .then((res) => {
+        emulatorId = res.id;
+        return android.ensureReady(emulatorId).then(() => {
+          return android.adb(
+            emulatorId,
+            `shell am start -a android.intent.action.VIEW -d ${url}`
+          );
+        });
       })
-      .catch((error) => {
-        log.error(error);
-        _process.kill();
+      .catch((e) => {
+        console.log("err,", e);
       });
+  });
+
+  this.on("kill", () => {
+    if (emulatorId) {
+      android.waitForStop(emulatorId).then(() => {
+        process.exit();
+      });
+    } else {
+      process.exit();
+    }
   });
 
   this._onProcessExit = (code, errorOutput) => {
