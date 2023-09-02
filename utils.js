@@ -5,7 +5,7 @@ const emulator = path.join(process.env.ANDROID_HOME, "tools/emulator");
 const adb = path.join(process.env.ANDROID_HOME, "platform-tools/adb");
 const avdmanager = path.join(
   process.env.ANDROID_HOME,
-  "cmdline-tools/latest/bin//avdmanager"
+  "cmdline-tools/bin/avdmanager"
 );
 
 function start(avdName) {
