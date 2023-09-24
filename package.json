@@ -1,6 +1,6 @@
 {
   "name": "@wtto00/karma-android-emulator-launcher",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Launch Stock Browser on Android Emulator. A Karma plugin.",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
   },
   "homepage": "https://github.com/wtto00/karma-android-emulator-launcher#readme",
   "dependencies": {
-    "@wtto00/androidctrl": "github:wtto00/androidctrl"
+    "@wtto00/android-tools": "^1.0.2"
   }
 }

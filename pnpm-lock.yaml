@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+dependencies:
+  '@wtto00/android-tools':
+    specifier: ^1.0.2
+    version: 1.0.2
+
+packages:
+
+  /@wtto00/android-tools@1.0.2:
+    resolution: {integrity: sha512-dr+mh1T0qYtKfJ4qeLdbDjwmZ8i/PjuZzyx/3uDjqHzjJNFh/QoIP4ut+UOixRCydqAb6SlZ9yt42NlQiXncXA==}
+    dev: false
