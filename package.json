@@ -2,7 +2,7 @@
   "name": "@wtto00/karma-android-emulator-launcher",
   "version": "1.0.0",
   "description": "Launch Stock Browser on Android Emulator. A Karma plugin.",
-  "main": "index.js",
+  "main": "index.cjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
