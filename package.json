@@ -1,27 +1,27 @@
 {
-  "name": "@wtto00/karma-android-emulator-launcher",
+  "name": "@wtto00/karma-android-launcher",
   "version": "1.0.0",
-  "description": "Launch Stock Browser on Android Emulator. A Karma plugin.",
+  "description": "Launch System WebView on Android Emulator and Android Device. A Karma plugin.",
   "main": "index.cjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wtto00/karma-android-emulator-launcher.git"
+    "url": "git+https://github.com/wtto00/karma-android-launcher.git"
   },
   "keywords": [
     "karma-launcher",
     "karma-plugin",
-    "android",
-    "emulator"
+    "android-emulator",
+    "android-device"
   ],
   "author": "wtto00 <wtto00@outlook.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wtto00/karma-android-emulator-launcher/issues"
+    "url": "https://github.com/wtto00/karma-android-launcher/issues"
   },
-  "homepage": "https://github.com/wtto00/karma-android-emulator-launcher#readme",
+  "homepage": "https://github.com/wtto00/karma-android-launcher#readme",
   "dependencies": {
     "@wtto00/android-tools": "^1.0.2"
   }

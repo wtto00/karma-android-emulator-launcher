@@ -1,4 +1,4 @@
-# karma-android-emulator-launcher
+# karma-android-launcher
 
 android emulator launcher for karma.
 

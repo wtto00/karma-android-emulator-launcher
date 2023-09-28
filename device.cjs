@@ -25,15 +25,8 @@ const AndroidDevice = function (args, logger, baseLauncherDecorator) {
         if (devices.findIndex((item) => item.name === deviceId) < 0)
           throw Error(`Device ${deviceId} is not connected.`);
       }
-      const isInstalled = await android.isInstalled(deviceId, "wang.tato.webview");
-      if (!isInstalled) {
-        log.debug("Start Start installing Android WebView App.");
-        await android.install(deviceId, path.resolve(__dirname, "./wang.tato.webview.apk"));
-      } else {
-        log.debug("Android WebView has been installed.");
-      }
       log.debug("Start browser testing: %s", url);
-      return android.adb(deviceId, `shell am start -S -n wang.tato.webview/.MainActivity -d ${url}`);
+      return android.adb(deviceId, `shell am start -a android.intent.action.VIEW -d ${url}`);
     } catch (error) {
       log.debug("err,", error);
       this._process.kill();
@@ -41,9 +34,7 @@ const AndroidDevice = function (args, logger, baseLauncherDecorator) {
   });
 
   this.on("kill", () => {
-    android.adb(deviceId, "shell am force-stop wang.tato.webview").finally(() => {
-      process.exit();
-    });
+    process.exit();
   });
 
   this._onProcessExit = (code, errorOutput) => {
