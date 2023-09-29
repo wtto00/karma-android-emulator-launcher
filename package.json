@@ -4,7 +4,8 @@
   "description": "Launch System WebView on Android Emulator and Android Device. A Karma plugin.",
   "main": "src/index.cjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --fix --color .",
+    "test": "karma start tests/karma.config.cjs"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,12 @@
   "devDependencies": {
     "eslint": "^8.50.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2"
+    "eslint-plugin-chai-friendly": "^0.7.2",
+    "eslint-plugin-import": "^2.25.2",
+    "ip": "^1.1.8",
+    "karma": "^6.4.2",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^2.0.1",
+    "mocha": "^10.2.0"
   }
 }

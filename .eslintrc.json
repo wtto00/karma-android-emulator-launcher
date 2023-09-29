@@ -2,15 +2,22 @@
   "env": {
     "commonjs": true,
     "es2021": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
-  "extends": "airbnb-base",
+  "globals": {
+    "expect": "readonly"
+  },
+  "plugins": ["chai-friendly"],
+  "extends": ["airbnb-base", "plugin:chai-friendly/recommended"],
   "parserOptions": {
     "ecmaVersion": "latest"
   },
   "rules": {
     "no-underscore-dangle": "off",
     "consistent-return": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "global-require": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

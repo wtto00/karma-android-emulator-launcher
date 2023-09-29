@@ -15,7 +15,6 @@ const AndroidDevice = function (args, logger, baseLauncherDecorator) {
   this.on('start', async (url) => {
     try {
       const devices = (await android.devices()).filter((item) => !item.name.startsWith('emulator'));
-      log.debug(devices);
       if (devices.length === 0) throw Error('No devices connected.');
       if (!deviceId) {
         const device = devices.find((item) => item.status === 'device');
