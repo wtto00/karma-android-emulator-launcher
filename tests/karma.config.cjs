@@ -32,7 +32,7 @@ module.exports = function (config) {
     // available reporters: https://www.npmjs.com/search?q=keywords:karma-reporter
     reporters: ['progress'],
 
-    hostname: ip.address(),
+    hostname: process.env.TARGET_BROWSER ? '10.0.2.2' : ip.address(),
     // web server port
     port: 9876,
 
@@ -53,7 +53,7 @@ module.exports = function (config) {
     customLaunchers,
     captureTimeout: 1200000,
     browserDisconnectTimeout: 60000,
-    browserNoActivityTimeout: 1200000,
+    browserNoActivityTimeout: 300000,
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
