@@ -61,6 +61,7 @@ const AndroidEmulator = function (args, logger, baseLauncherDecorator) {
       return android.adb(emulatorId, `shell am start -S -n wang.tato.webview/.MainActivity -d ${url}`);
     } catch (error) {
       log.debug('err,', error);
+      this._process.exitCode = -1;
       this._process.kill();
     }
   });
@@ -74,10 +75,10 @@ const AndroidEmulator = function (args, logger, baseLauncherDecorator) {
   this.on('kill', () => {
     if (emulatorId) {
       android.waitForStop(emulatorId).finally(() => {
-        process.exit();
+        process.exit(this._process.exitCode);
       });
     } else {
-      process.exit();
+      process.exit(this._process.exitCode);
     }
   });
 };

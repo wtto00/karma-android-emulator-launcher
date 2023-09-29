@@ -27,6 +27,7 @@ const AndroidDevice = function (args, logger, baseLauncherDecorator) {
       return android.adb(deviceId, `shell am start -a android.intent.action.VIEW -d ${url}`);
     } catch (error) {
       log.debug('err,', error);
+      this._process.exitCode = -1;
       this._process.kill();
     }
   });
@@ -38,7 +39,7 @@ const AndroidDevice = function (args, logger, baseLauncherDecorator) {
   };
 
   this.on('kill', () => {
-    process.exit();
+    process.exit(this._process.exitCode);
   });
 };
 

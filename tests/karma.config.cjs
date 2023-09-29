@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Sat Sep 30 2023 00:11:34 GMT+0800 (中国标准时间)
 const ip = require('ip');
-const { customLaunchers, launcher } = require('./customLaunchers.cjs');
+const customLaunchers = require('./customLaunchers.cjs');
 
 module.exports = function (config) {
   config.set({
@@ -49,7 +49,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://www.npmjs.com/search?q=keywords:karma-launcher
-    browsers: Object.keys(launcher),
+    browsers: Object.keys(customLaunchers),
     customLaunchers,
     captureTimeout: 300000,
     browserDisconnectTimeout: 60000,

@@ -80,9 +80,7 @@ allLaunchers.android_device = {
 
 const ciLauncher = allLaunchers[process.env.TARGET_BROWSER];
 
-exports.customLaunchers = allLaunchers;
-
-exports.launcher = ciLauncher ? { target_browser: ciLauncher } : {
+module.exports = ciLauncher ? { target_browser: ciLauncher } : {
   android_device: {
     base: 'AndroidDevice',
   },
