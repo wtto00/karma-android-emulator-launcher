@@ -2,7 +2,7 @@
   "name": "@wtto00/karma-android-launcher",
   "version": "1.0.0",
   "description": "Launch System WebView on Android Emulator and Android Device. A Karma plugin.",
-  "main": "index.cjs",
+  "main": "src/index.cjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +24,10 @@
   "homepage": "https://github.com/wtto00/karma-android-launcher#readme",
   "dependencies": {
     "@wtto00/android-tools": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
   }
 }
