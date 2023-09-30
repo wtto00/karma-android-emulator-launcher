@@ -32,6 +32,23 @@ jobs:
   Test:
     runs-on: macos-latest
     # needs: Lint
+    strategy:
+      matrix:
+        config:
+          - targetBrowser: android_emulator_5
+          - targetBrowser: android_emulator_5_1
+          - targetBrowser: android_emulator_6
+          - targetBrowser: android_emulator_7
+          - targetBrowser: android_emulator_7_1
+          - targetBrowser: android_emulator_8
+          - targetBrowser: android_emulator_8_1
+          - targetBrowser: android_emulator_9
+          - targetBrowser: android_emulator_10
+          - targetBrowser: android_emulator_11
+          - targetBrowser: android_emulator_12
+          - targetBrowser: android_emulator_12_1
+          - targetBrowser: android_emulator_13
+          - targetBrowser: android_emulator_14
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
@@ -64,23 +81,7 @@ jobs:
         run: |
           sdkmanager emulator
 
-      - name: Run tests for android 5.0
+      - name: Run tests
         env:
-          TARGET_BROWSER: android_emulator_5
-        run: |
-          sdkmanager "system-images;android-21;default;x86_64"
-          npm run test
-
-      - name: Run tests for android 5.1
-        env:
-          TARGET_BROWSER: android_emulator_5_1
-        run: |
-          sdkmanager "system-images;android-22;default;x86_64"
-          npm run test
-
-      - name: Run tests for android 6
-        env:
-          TARGET_BROWSER: android_emulator_6
-        run: |
-          sdkmanager "system-images;android-23;default;x86_64"
-          npm run test
+          TARGET_BROWSER: ${{ matrix.config.targetBrowser }}
+        run: npm run test

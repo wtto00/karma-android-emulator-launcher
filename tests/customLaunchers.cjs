@@ -17,11 +17,11 @@ const launchers = {
   },
   android_emulator_7_1: {
     base: 'AndroidEmulator',
-    target: 'google_apis',
     apiLevel: 25,
   },
   android_emulator_8: {
     base: 'AndroidEmulator',
+    target: 'google_apis',
     apiLevel: 26,
   },
   android_emulator_8_1: {
