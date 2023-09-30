@@ -90,15 +90,15 @@ module.exports = ciLauncher ? { target_browser: ciLauncher } : {
   //   avdName: 'android_emulator_21',
   //   apiLevel: 21,
   // },
-  android_emulator_5_1: {
-    base: 'AndroidEmulator',
-    avdName: 'android_emulator_22',
-    apiLevel: 22,
-  },
-  // android_emulator_6: {
+  // android_emulator_5_1: {
   //   base: 'AndroidEmulator',
-  //   apiLevel: 23,
+  //   avdName: 'android_emulator_22',
+  //   apiLevel: 22,
   // },
+  android_emulator_6: {
+    base: 'AndroidEmulator',
+    apiLevel: 23,
+  },
   // android_emulator_7: {
   //   base: 'AndroidEmulator',
   //   avdName: 'android_emulator_24',
