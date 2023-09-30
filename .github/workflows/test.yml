@@ -63,7 +63,8 @@ jobs:
       - name: Install SDK
         run: |
           sdkmanager emulator
-          sdkmanager system-images;android-24;default;x86_64
+          sdkmanager "system-images;android-24;default;x86_64"
+          ls $ANDROID_HOME
 
       - name: Run tests 👩🏽‍💻
         env:
