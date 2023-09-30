@@ -60,8 +60,12 @@ jobs:
       - name: Setup Android SDK
         uses: amyu/setup-android@v3.1
 
+      - name: Install SDK
+        run: |
+          sdkmanager emulator
+          sdkmanager system-images;android-24;default;x86_64
+
       - name: Run tests 👩🏽‍💻
         env:
           TARGET_BROWSER: android_emulator_7
         run: npm run test
-
