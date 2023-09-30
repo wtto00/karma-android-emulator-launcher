@@ -33,6 +33,7 @@ jobs:
     runs-on: macos-latest
     # needs: Lint
     strategy:
+      fail-fast: false
       matrix:
         config:
           - targetBrowser: android_emulator_5
