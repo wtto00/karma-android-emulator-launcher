@@ -62,6 +62,6 @@ jobs:
 
       - name: Run tests 👩🏽‍💻
         env:
-          TARGET_BROWSER: android_emulator_5
+          TARGET_BROWSER: android_emulator_7
         run: npm run test
 

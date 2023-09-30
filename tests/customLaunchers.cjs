@@ -1,16 +1,4 @@
 const launchers = {
-  android_emulator_5: {
-    base: 'AndroidEmulator',
-    apiLevel: 21,
-  },
-  android_emulator_5_1: {
-    base: 'AndroidEmulator',
-    apiLevel: 22,
-  },
-  android_emulator_6: {
-    base: 'AndroidEmulator',
-    apiLevel: 23,
-  },
   android_emulator_7: {
     base: 'AndroidEmulator',
     apiLevel: 24,
@@ -81,7 +69,12 @@ allLaunchers.android_device = {
 const ciLauncher = allLaunchers[process.env.TARGET_BROWSER];
 
 module.exports = ciLauncher ? { target_browser: ciLauncher } : {
-  android_device: {
-    base: 'AndroidDevice',
+  // android_device: {
+  //   base: 'AndroidDevice',
+  // },
+  android_emulator_7: {
+    base: 'AndroidEmulator',
+    apiLevel: 24,
+    avdName: 'android_emulator_24',
   },
 };
