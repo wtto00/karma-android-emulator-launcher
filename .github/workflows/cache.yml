@@ -1,0 +1,53 @@
+name: "Cache"
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Cache:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Setup JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+
+      - name: Setup Android SDK
+        uses: amyu/setup-android@v3.1
+
+      - name: Install emulator and images
+        run: |
+          sdkmanager emulator
+          sdkmanager "system-images;android-21;default;x86_64"
+          sdkmanager "system-images;android-22;default;x86_64"
+          sdkmanager "system-images;android-24;default;x86_64"
+          sdkmanager "system-images;android-25;default;x86_64"
+          sdkmanager "system-images;android-26;google_apis;x86_64"
+          sdkmanager "system-images;android-27;default;x86_64"
+          sdkmanager "system-images;android-28;default;x86_64"
+          sdkmanager "system-images;android-29;default;x86_64"
+          sdkmanager "system-images;android-30;default;x86_64"
+          sdkmanager "system-images;android-31;default;x86_64"
+          sdkmanager "system-images;android-32;default;x86_64"
+          sdkmanager "system-images;android-33;default;x86_64"
+          sdkmanager "system-images;android-34;google_apis;x86_64"
