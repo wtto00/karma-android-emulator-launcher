@@ -1,24 +1,21 @@
 # karma-android-launcher
 
-android emulator launcher for karma.
+Launch System WebView on Android Emulator and Android Device. A Karma plugin.
 
-## Prepare
+## Note
 
-`ANDROID_HOME` must be set in the environment variables.
+1. **async function**  
+   Due to the usage of `async function` in Mocha, which is supported starting from Chrome Android version 55 (Released 2016-12-06), if you are using Mocha, please perform testing on Android 8.0 or later.
 
-## Args
-
-| Name       | Require | Default                          | Note                                                                        |
-| ---------- | ------- | -------------------------------- | --------------------------------------------------------------------------- |
-| image      | false   | -                                | Name of android system image                                                |
-| avdName    | false   | Android_Emulator                 | Name of AVD                                                                 |
-| adb        | false   | './platform-tools/adb'           | The location of the `adb` executable file relative to `ANDROID_HOME`        |
-| avdmanager | false   | './cmdline-tools/bin/avdmanager' | The location of the `avdmanager` executable file relative to `ANDROID_HOME` |
-| sdkmanager | false   | './cmdline-tools/bin/sdkmanager' | The location of the `sdkmanager` executable file relative to `ANDROID_HOME` |
-
-#### image
-
-If the `image` parameter is not set, the default system image of android is the last target listed in `sdkmanager --list | grep system-images | grep default | grep x86_64`. Replace `x86_64` with the appropriate platform for your own setup.
-
-Due to the protocol pop-up window that appears when Chrome browser is launched in the `google_apis` image, it is causing an interruption in the process.  
-Therefore, the selectable values for the image must be within `sdkmanager --list | grep system-images | grep default | grep x86_64`. Replace `x86_64` with the appropriate platform for your own setup.
+   - Android 5.0 Lollipop (WebView version 44)
+   - Android 5.1 Lollipop (WebView version 45)
+   - Android 6.0 Marshmallow (WebView version 46)
+   - Android 7.0 Nougat (WebView version 51)
+   - Android 7.1 Nougat (WebView version 52)
+   - Android 8.0 Oreo (WebView version 60)
+   - Android 8.1 Oreo (WebView version 61)
+   - Android 9.0 Pie (WebView version 67)
+   - Android 10 (WebView version 69)
+   - Android 11 (WebView version 85)
+1. **for await...of**  
+   Due to the usage of `for await...of` in Mocha, which is supported starting from Chrome Android version 63 (Released 2017-12-05), if you are using Mocha, please perform testing on Android 9.0 or later.

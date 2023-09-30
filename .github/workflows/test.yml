@@ -63,10 +63,10 @@ jobs:
       - name: Install SDK
         run: |
           sdkmanager emulator
-          sdkmanager "system-images;android-24;default;x86_64"
+          sdkmanager "system-images;android-21;default;x86_64"
           ls $ANDROID_HOME
 
       - name: Run tests 👩🏽‍💻
         env:
-          TARGET_BROWSER: android_emulator_7
+          TARGET_BROWSER: android_emulator_5
         run: npm run test

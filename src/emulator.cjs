@@ -53,10 +53,19 @@ const AndroidEmulator = function (args, logger, baseLauncherDecorator) {
       });
       emulatorId = res.id;
       log.debug('The simulator has started: %s', emulatorId);
+
       await android.ensureReady(emulatorId);
       log.debug('The emulator is ready for use: %s', emulatorId);
-      await android.install(emulatorId, path.resolve(__dirname, './wang.tato.webview.apk'));
+
+      const webviewInstalled = await android.isInstalled(emulatorId, 'wang.tato.webview');
+      if (webviewInstalled) {
+        log.debug('Android WebView has been already installed, start uninstalling.');
+        await android.adb(emulatorId, 'uninstall wang.tato.webview');
+      }
+      log.debug('Start installing Android WebView.');
+      await android.install(emulatorId, `${path.resolve(__dirname, './wang.tato.webview.apk')}`);
       log.debug('Android WebView has been installed.');
+
       log.debug('Start browser testing: %s', url);
       return android.adb(emulatorId, `shell am start -S -n wang.tato.webview/.MainActivity -d ${url}`);
     } catch (error) {
