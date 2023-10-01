@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/wtto00/karma-android-launcher#readme",
   "dependencies": {
-    "@wtto00/android-tools": "^1.0.3"
+    "@wtto00/android-tools": "^1.0.4"
   },
   "devDependencies": {
     "eslint": "^8.50.0",
