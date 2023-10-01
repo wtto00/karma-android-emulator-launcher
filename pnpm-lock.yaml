@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@wtto00/android-tools':
-    specifier: ^1.0.2
-    version: 1.0.2
+    specifier: ^1.0.3
+    version: 1.0.3
 
 devDependencies:
   eslint:
@@ -150,8 +150,8 @@ packages:
     resolution: {integrity: sha512-LT+OIXpp2kj4E2S/p91BMe+VgGX2+lfO+XTpfXhh+bCk2LkQtHZSub8ewFBMGP5ClysPjTDFa4sMI8Q3n4T0wg==}
     dev: true
 
-  /@wtto00/android-tools@1.0.2:
-    resolution: {integrity: sha512-dr+mh1T0qYtKfJ4qeLdbDjwmZ8i/PjuZzyx/3uDjqHzjJNFh/QoIP4ut+UOixRCydqAb6SlZ9yt42NlQiXncXA==}
+  /@wtto00/android-tools@1.0.3:
+    resolution: {integrity: sha512-zDoVCzLNXgZRytHNYI51kFQnTNCI8LzI6Gq6qKqPtKr1jJ37uu19Qou/wg14EzagIbUbmYxoHLwQ54uOrvdEsA==}
     dev: false
 
   /accepts@1.3.8:

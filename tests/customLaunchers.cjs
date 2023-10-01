@@ -95,10 +95,10 @@ module.exports = ciLauncher ? { target_browser: ciLauncher } : {
   //   avdName: 'android_emulator_22',
   //   apiLevel: 22,
   // },
-  android_emulator_6: {
-    base: 'AndroidEmulator',
-    apiLevel: 23,
-  },
+  // android_emulator_6: {
+  //   base: 'AndroidEmulator',
+  //   apiLevel: 23,
+  // },
   // android_emulator_7: {
   //   base: 'AndroidEmulator',
   //   avdName: 'android_emulator_24',
@@ -114,6 +114,15 @@ module.exports = ciLauncher ? { target_browser: ciLauncher } : {
   //   avdName: 'android_emulator_26_google',
   //   target: 'google_apis',
   //   apiLevel: 26,
+  //   emulatorOptions: {
+  //     noWindow: true,
+  //     noaudio: true,
+  //     noBootAnim: true,
+  //     noSnapshot: true,
+  //     noSnapshotSave: true,
+  //     noSnapshotLoad: true,
+  //     gpu: 'swiftshader_indirect',
+  //   },
   // },
   // android_emulator_8_1: {
   //   base: 'AndroidEmulator',
@@ -148,4 +157,10 @@ module.exports = ciLauncher ? { target_browser: ciLauncher } : {
   //   apiLevel: 34,
   //   target: 'google_apis',
   // },
+  android_emulator_14: {
+    base: 'AndroidEmulator',
+    avdName: 'android_emulator_34',
+    apiLevel: 34,
+    target: 'google_apis',
+  },
 };
