@@ -82,6 +82,9 @@ const AndroidEmulator = function (args, logger, baseLauncherDecorator) {
   };
 
   this.on('kill', () => {
+    if (this.error) {
+      this._process.exitCode = -1;
+    }
     if (emulatorId) {
       android.waitForStop(emulatorId).finally(() => {
         process.exit(this._process.exitCode);

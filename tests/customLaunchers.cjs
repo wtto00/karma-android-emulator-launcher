@@ -82,9 +82,9 @@ allLaunchers.android_device = {
 const ciLauncher = allLaunchers[process.env.TARGET_BROWSER];
 
 module.exports = ciLauncher ? { target_browser: ciLauncher } : {
-  // android_device: {
-  //   base: 'AndroidDevice',
-  // },
+  android_device: {
+    base: 'AndroidDevice',
+  },
   // android_emulator_5: {
   //   base: 'AndroidEmulator',
   //   avdName: 'android_emulator_21',
@@ -109,21 +109,21 @@ module.exports = ciLauncher ? { target_browser: ciLauncher } : {
   //   avdName: 'android_emulator_25',
   //   apiLevel: 25,
   // },
-  android_emulator_8: {
-    base: 'AndroidEmulator',
-    avdName: 'android_emulator_26_google',
-    target: 'google_apis',
-    apiLevel: 26,
-    emulatorOptions: {
-      noWindow: true,
-      noaudio: true,
-      noBootAnim: true,
-      noSnapshot: true,
-      noSnapshotSave: true,
-      noSnapshotLoad: true,
-      gpu: 'swiftshader_indirect',
-    },
-  },
+  // android_emulator_8: {
+  //   base: 'AndroidEmulator',
+  //   avdName: 'android_emulator_26_google',
+  //   target: 'google_apis',
+  //   apiLevel: 26,
+  //   emulatorOptions: {
+  //     noWindow: true,
+  //     noaudio: true,
+  //     noBootAnim: true,
+  //     noSnapshot: true,
+  //     noSnapshotSave: true,
+  //     noSnapshotLoad: true,
+  //     gpu: 'swiftshader_indirect',
+  //   },
+  // },
   // android_emulator_8_1: {
   //   base: 'AndroidEmulator',
   //   apiLevel: 27,
