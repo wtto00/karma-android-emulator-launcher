@@ -32,9 +32,6 @@ jobs:
   Test:
     runs-on: macos-latest
     needs: Lint
-    concurrency:
-      group: ${{ github.head_ref }}
-      cancel-in-progress: true
     strategy:
       fail-fast: false
       matrix:
@@ -53,6 +50,9 @@ jobs:
           - targetBrowser: android_emulator_12_1
           - targetBrowser: android_emulator_13
           - targetBrowser: android_emulator_14
+    concurrency:
+      group: ${{ github.head_ref }}-${{ matrix.config.targetBrowser }}
+      cancel-in-progress: true
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
