@@ -1,37 +1,37 @@
 name: "Test"
 on:
-  push:
+  pull_request:
     branches:
       - main
 
 jobs:
-  # Lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout Code
-  #       uses: actions/checkout@v3
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-  #     - name: Install pnpm
-  #       uses: pnpm/action-setup@v2
-  #       with:
-  #         version: 8
-  #         run_install: false
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
 
-  #     - name: Install Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 20
-  #         cache: 'pnpm'
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
 
-  #     - name: Install Dependencies
-  #       run: pnpm install --no-frozen-lockfile
+      - name: Install Dependencies
+        run: pnpm install --no-frozen-lockfile
 
-  #     - name: Run Lint
-  #       run: npm run lint
+      - name: Run Lint
+        run: npm run lint
 
   Test:
     runs-on: macos-latest
-    # needs: Lint
+    needs: Lint
     strategy:
       fail-fast: false
       matrix:
@@ -50,6 +50,9 @@ jobs:
           - targetBrowser: android_emulator_12_1
           - targetBrowser: android_emulator_13
           - targetBrowser: android_emulator_14
+    concurrency:
+      group: ${{ github.head_ref }}-${{ matrix.config.targetBrowser }}
+      cancel-in-progress: true
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3

@@ -14,12 +14,15 @@ const AndroidEmulator = function (args, logger, baseLauncherDecorator) {
     adb,
     avdmanager,
     sdkmanager,
+    emulator,
     emulatorOptions,
   } = args;
 
   baseLauncherDecorator(this);
 
-  const android = new Android({ adb, avdmanager, sdkmanager });
+  const android = new Android({
+    adb, avdmanager, sdkmanager, emulator,
+  });
 
   this._getOptions = () => ['-e', 'setInterval(() => { console.log(new Date().toLocaleTimeString()); }, 1000);'];
 

@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Launch System WebView on Android Emulator and Android Device. A Karma plugin.",
   "main": "src/index.cjs",
+  "files": [
+    "src",
+    "README-zh_CN.md"
+  ],
   "scripts": {
     "lint": "eslint --fix --color .",
     "test": "karma start tests/karma.config.cjs"
