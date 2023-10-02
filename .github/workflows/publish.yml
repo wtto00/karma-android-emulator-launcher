@@ -1,0 +1,37 @@
+name: "Publish"
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  PublishGithub:
+    runs-on: ubuntu-latest
+    name: Publish Github Package
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - run: npm pkg set publishConfig.registry=https://npm.pkg.github.com
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  PublishNpm:
+    runs-on: ubuntu-latest
+    name: Publish Npm Package
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - run: git config --global user.name "GitHub CD bot"
+      - run: git config --global user.email "github-cd-bot@example.com"
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
