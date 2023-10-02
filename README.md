@@ -1,5 +1,7 @@
 # karma-android-launcher
 
+[![Test](https://github.com/wtto00/karma-android-launcher/actions/workflows/test.yml/badge.svg)](https://github.com/wtto00/karma-android-launcher/actions/workflows/test.yml)
+
 English | [简体中文](./README-zh_CN.md)
 
 Launch System WebView on Android Emulator and Android Device. A Karma plugin.

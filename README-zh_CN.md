@@ -1,5 +1,7 @@
 # karma-android-launcher
 
+[![Test](https://github.com/wtto00/karma-android-launcher/actions/workflows/test.yml/badge.svg)](https://github.com/wtto00/karma-android-launcher/actions/workflows/test.yml)
+
 [English](./README.md) | 简体中文
 
 使用连接的安卓设备或者模拟器中的系统 webview 来加载 karma 测试。
