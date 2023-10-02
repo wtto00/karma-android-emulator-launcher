@@ -5,6 +5,17 @@ on:
       - "v*"
 
 jobs:
+  Relase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          draft: true
+          generate_release_notes: true
+
   PublishGithub:
     runs-on: ubuntu-latest
     name: Publish Github Package
