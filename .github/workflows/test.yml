@@ -79,7 +79,9 @@ jobs:
           distribution: temurin
 
       - name: Setup Android SDK
-        uses: amyu/setup-android@v3.1
+        uses: amyu/setup-android@v3.2
+        with:
+          cache-key: sdk-${{ matrix.config.targetBrowser }}
 
       - name: Install emulator
         run: |
