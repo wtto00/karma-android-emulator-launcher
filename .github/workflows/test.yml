@@ -37,17 +37,17 @@ jobs:
       matrix:
         config:
           - targetBrowser: android_emulator_5
-          - targetBrowser: android_emulator_5_1
-          - targetBrowser: android_emulator_6
+          # - targetBrowser: android_emulator_5_1
+          # - targetBrowser: android_emulator_6
           - targetBrowser: android_emulator_7
-          - targetBrowser: android_emulator_7_1
-          - targetBrowser: android_emulator_8
-          - targetBrowser: android_emulator_8_1
+          # - targetBrowser: android_emulator_7_1
+          # - targetBrowser: android_emulator_8
+          # - targetBrowser: android_emulator_8_1
           - targetBrowser: android_emulator_9
-          - targetBrowser: android_emulator_10
+          # - targetBrowser: android_emulator_10
           - targetBrowser: android_emulator_11
-          - targetBrowser: android_emulator_12
-          - targetBrowser: android_emulator_12_1
+          # - targetBrowser: android_emulator_12
+          # - targetBrowser: android_emulator_12_1
           - targetBrowser: android_emulator_13
           - targetBrowser: android_emulator_14
     concurrency:
@@ -79,7 +79,9 @@ jobs:
           distribution: temurin
 
       - name: Setup Android SDK
-        uses: amyu/setup-android@v3.1
+        uses: amyu/setup-android@v3.2
+        with:
+          cache-key: sdk-${{ matrix.config.targetBrowser }}
 
       - name: Install emulator
         run: |
